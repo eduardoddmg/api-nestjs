@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js" // Define o cliente do Prisma
+}
+
+datasource db {
+  provider = "sqlite"           // Define o banco de dados como SQLite
+  url      = "file:./dev.db"    // Caminho para o arquivo do banco de dados SQLite
+}
+
+model User {
+  id        Int      @id @default(autoincrement()) // ID com auto incremento
+  name      String                                // Nome do usuário
+  email     String   @unique                      // Email único
+  createdAt DateTime @default(now())              // Data de criação com valor padrão "agora"
+}
